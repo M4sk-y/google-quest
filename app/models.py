@@ -2,10 +2,12 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Date, DateTime
 from datetime import datetime
 from app.database import Base
 
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+
 
 class Activity(Base):
     __tablename__ = "activities"
@@ -15,12 +17,14 @@ class Activity(Base):
     emoji = Column(String, nullable=False)
     category = Column(String, nullable=False)
 
+
 class Pattern(Base):
     __tablename__ = "patterns"
     id = Column(String, primary_key=True)
     label = Column(String, nullable=False)
     emoji = Column(String, nullable=False)
     target = Column(Integer, nullable=False)
+
 
 class LogEntry(Base):
     __tablename__ = "log_entries"
